@@ -3,7 +3,7 @@
 #include <assert.h>
 
 #include "../pbs_entities.h"
-#include "../prediction_failure_config.h"
+#include "../config.h"
 
 
 void write_binary_to_file(struct PBS_Plan* plan, char* path);

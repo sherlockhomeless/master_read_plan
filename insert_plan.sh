@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-BINARY=/home/vagrant/kernel_src/pbs_plan_copy/write_plan_userland/w
+BINARY=/home/vagrant/lkm/plan_in/write_plan_userland/w
 PLAN=/home/vagrant/kernel_src/plans/plan.log
-LKM=/home/vagrant/kernel_src/pbs_plan_copy
+LKM=/home/vagrant/lkm/plan_in
 
 cd $LKM
 make in
 sudo $BINARY $PLAN
+
