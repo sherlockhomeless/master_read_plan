@@ -197,3 +197,5 @@ _deps
 # End of https://www.toptal.com/developers/gitignore/api/clion,pycharm,cmake
 **/cmake-build-debug/**
 **/.idea/**
+
+**/*.o
