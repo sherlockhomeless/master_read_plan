@@ -11,9 +11,6 @@
 #define PLAN_TASK_FINISHED 4
 #define PLAN_TASK_ABORTED 5
 
-#define SHARES_NO_SLOT 0
-
-
 #define ON_PLAN 0
 #define SIGNALED 1
 #define PLAN_FINISHED 2
@@ -34,10 +31,9 @@
 };
 
 // PROCESS
-
- struct PBS_Process {
+struct PBS_Process {
     long process_id; // classic PID
-    long num_tasks_remaining; //todo: update
+    long num_tasks_remaining;
     long buffer;
     long lateness;
     long length_plan;
@@ -46,7 +42,6 @@
 
 
 // PLAN
-
  struct PBS_Plan{
     long num_processes;
     long num_tasks;
@@ -55,12 +50,13 @@
     struct PBS_Task* finished_tasks;
     struct PBS_Process* cur_process;
     struct PBS_Task* cur_task;
-    struct PBS_Task preempted_tasks[MAX_NUMBER_PROCESSES];
     long index_cur_task;
     long lateness;
     long instructions_retired;
+    long instructions_planned;
     short state;
     long tick_counter;
     long tasks_finished;
     long stress;
+    long lateness_balancer; // it has to be assumed that job-scheduler is able to fix lateness
 };

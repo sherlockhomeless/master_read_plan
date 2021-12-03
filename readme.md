@@ -1,6 +1,6 @@
 # master_read_plan
 
-This repository contains the Kernel Module desciribed in **Level 3: Kernel / Plan Input**. Most notably, it contains 3 symlinked files.
+This repository contains the Kernel Module desciribed in **Level Three: Kernel / Plan Input**. Most notably, it contains 3 symlinked files.
 
 1. **config.h:** Pointing to the configuration file for the plan based scheduler
 2. **pbs_entities.h:** Definition for the plan data structures
