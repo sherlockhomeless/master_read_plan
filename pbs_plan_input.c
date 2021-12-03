@@ -230,11 +230,11 @@ static char check_plan(struct PBS_Plan* p){
     // check tasks
     t_ptr = p->tasks;
     while(t_ptr->task_id != -2){
-        if (t_ptr->task_id < -1 || t_ptr->process_id < -1){
+        if (t_ptr->task_id < -2 || t_ptr->process_id < -2){
             printk(KERN_ERR "[PBS_check_plan] Task-id falsely initialized\n");
             return 0;
         }
-        if (t_ptr-> instructions_planned <= 0 || t_ptr->instructions_real <= 0 || t_ptr->instructions_retired_slot != 0 || t_ptr->instructions_retired_task != 0 || t_ptr->lateness != 0 || t_ptr->slot_owner != SHARES_NO_SLOT){
+        if (t_ptr-> instructions_planned <= 0 || t_ptr->instructions_real <= 0 || t_ptr->instructions_retired_slot != 0 || t_ptr->instructions_retired_task != 0 || t_ptr->lateness != 0 ){
 
             printk(KERN_ERR "[PBS_check_plan] Task tracking falsely initialized\n");
             return 0;
