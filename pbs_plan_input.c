@@ -236,7 +236,7 @@ static char check_plan(struct PBS_Plan* p){
         }
         if (t_ptr-> instructions_planned <= 0 || t_ptr->instructions_real <= 0 || t_ptr->instructions_retired_slot != 0 || t_ptr->instructions_retired_task != 0 || t_ptr->lateness != 0 ){
 
-            printk(KERN_ERR "[PBS_check_plan] Task tracking falsely initialized\n");
+            printk(KERN_ERR "[PBS_check_plan] Task tracking falsely initialized (id: %ld, plan: %ld, real: %ld, retired_slot: %ld, retired_task: %ld, slot_owner: %ld)\n");
             return 0;
         }
 
