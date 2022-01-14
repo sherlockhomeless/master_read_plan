@@ -218,7 +218,7 @@ static char check_plan(struct PBS_Plan* p){
     // check processes
     p_ptr = p->processes;
     for(i = 0; i < p->num_processes; i++){
-        print_process(p_ptr);
+        //print_process(p_ptr);
         if (p_ptr->process_id < 0 || p_ptr->num_tasks_remaining <= 0 || p_ptr->buffer <= 0 || p_ptr->lateness != 0 || p_ptr->length_plan <= 0 || p_ptr->instructions_retired != 0 ){
             printk(KERN_ERR "[PBS_check_plan] Process tracking variables falsely initialized\n");
             return 0;
@@ -236,7 +236,7 @@ static char check_plan(struct PBS_Plan* p){
         }
         if (t_ptr-> instructions_planned <= 0 || t_ptr->instructions_real <= 0 || t_ptr->instructions_retired_slot != 0 || t_ptr->instructions_retired_task != 0 || t_ptr->lateness != 0 ){
 
-            printk(KERN_ERR "[PBS_check_plan] Task tracking falsely initialized (id: %ld, plan: %ld, real: %ld, retired_slot: %ld, retired_task: %ld, slot_owner: %ld)\n");
+            printk(KERN_ERR "[PBS_check_plan] Task tracking falsely initialized (id: %ld, plan: %ld, real: %ld, retired_slot: %ld, retired_task: %ld, slot_owner: %ld)\n", t_ptr->task_id, t_ptr->instructions_planned, t_ptr->instructions_real, t_ptr->instructions_retired_slot, t_ptr->instructions_retired_task, t_ptr->slot_owner);
             return 0;
         }
 
