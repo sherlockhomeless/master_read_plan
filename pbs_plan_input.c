@@ -49,7 +49,6 @@ static void fix_pointer_for_kernel_space(struct PBS_Plan*);
 
 static char check_plan(struct PBS_Plan*);
 static long length_plan(struct PBS_Plan* plan);
-static void print_process(struct PBS_Process* pro);
 struct PBS_Plan* plan_ptr;
 int bytes_written;
 
@@ -257,10 +256,5 @@ static long length_plan(struct PBS_Plan* plan){
     return plan_length;
 }
 
-
-static void print_process(struct PBS_Process* pro){
-    printk(KERN_INFO "id=%ld, num_tasks=%ld, buffer=%ld, lateness=%ld, length=%ld, instructions_retired=%ld\n",
-                pro->process_id, pro->num_tasks_remaining, pro->buffer, pro->lateness, pro->length_plan, pro->instructions_retired);
-}
 module_init(init_global_module);
 module_exit(exit_global_module);
