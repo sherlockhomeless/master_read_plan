@@ -158,9 +158,10 @@ static ssize_t plan_write(struct file *filep, const char *buffer, size_t len, lo
     }
     bytes_written = len;
     // if reset == true => plan was fully written
+    fix_pointer_for_kernel_space(plan_ptr);
+
     if (reset){
         bytes_written = 0;
-        fix_pointer_for_kernel_space(plan_ptr);
 
         if (CHECK_PLAN){
             plan_correct = check_plan(plan_ptr);
