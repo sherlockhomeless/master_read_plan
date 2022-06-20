@@ -242,6 +242,12 @@ static char check_plan(struct PBS_Plan* p){
 
         t_ptr++;
     }
+
+    // check node lateness is 0
+    if (p->lateness != 0) {
+        printk(KERN_ERR "[PBS_check_plan] Process tracking variables falsely initialized\n");
+        return 0;
+    }
     return 1;
 }
 
