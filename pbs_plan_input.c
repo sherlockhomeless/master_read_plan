@@ -191,13 +191,13 @@ static void fix_pointer_for_kernel_space(struct PBS_Plan* p){
     p->cur_task = p->tasks;
     p->cur_process = &p->processes[p->cur_task->process_id];
     p->finished_tasks = p->tasks;
+    p->instructions_planned = length_plan(p);
     printk(KERN_INFO "[PBS_plan_write]0: fixing pointers, after: cur_task=%p, cur_process=%p\n", p->cur_task, p->cur_process);
     printk(KERN_INFO "[PBS_plan_write]0: plan_ptr=%p, processes=%p, tasks=%p\n", p, p->processes, p->tasks);
     printk(KERN_INFO "[PBS_plan_write]0: 1st_process=%p, 2nd_process=%p\n", &p->processes[0], &p->processes[1]);
     printk(KERN_INFO "[PBS_plan_write]0: 1st_task=%p, last_task=%p\n", &p->tasks[0], &p->tasks[p->num_tasks-1]);
     printk(KERN_INFO "[PBS_plan_write]0: 1st_process: id=%ld, num_tasks_remaining=%ld, instructions_retired=%ld, buffer=%ld\n", p->processes[0].process_id, p->processes[0].num_tasks_remaining, p->processes[0].instructions_retired, p->processes[0].buffer);
     printk(KERN_INFO "[PBS_plan_write]0: 1st_task: id=%ld, instructions_planned=%ld, instructions_retired=%ld, lateness=%ld\n", p->tasks[0].task_id, p->tasks[0].instructions_planned, p->tasks[0].instructions_retired_task, p->tasks[0].lateness);
-    printk(KERN_INFO "[PBS_plan_write]0: Node lateness: %ld\n", p->lateness);
 }
 
 static char check_plan(struct PBS_Plan* p){
